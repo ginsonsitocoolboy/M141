@@ -80,7 +80,7 @@ sudo rm /var/www/html/info.php
 
 ## Ergebnis
 
-- Webserver funktioniert unter `http://<DEINE_PUBLIC_IP>`
+- Webserver funktioniert unter `http://<PUBLIC_IP>`
 - Datenbank ist eingerichtet und erreichbar
 - PHP ist aktiv und kann mit MariaDB kommunizieren
 

@@ -1,17 +1,16 @@
-# Projekt 
+# Projekt LB3
 
-
-# 1. Teil Lokale Datenbank mit MariaDB (XAMPP)
+# 1. Teil Lokale Datenbank mit MySQL (XAMPP + phpMyAdmin)
 
 ## 1. Lokale Datenbank
 
-Ich habe MariaDB mit XAMPP benutzt, um die Datenbank lokal zu testen. MariaDB ist wie MySQL und einfach zu verwenden.
+Ich habe MySQL mit XAMPP benutzt und mit phpMyAdmin gearbeitet, um die Datenbank lokal zu testen. MySQL ist einfach zu verwenden und läuft gut auf dem lokalen Server.
 
 ---
 
 ## 1.1 ERD in 2. Normalform
 
-Ich habe das ER-Diagramm vom Backpacker-Projekt genommen und es in die 2. Normalform gebracht. So werden doppelte Daten vermieden. Die Tabellen habe ich mit dem DDL-Script erstellt.
+Ich habe das ER-Diagramm vom Backpacker-Projekt genommen und es in die 2. Normalform gebracht. So werden doppelte Daten vermieden. Die Tabellen habe ich mit dem DDL-Script in phpMyAdmin erstellt.
 
 Dateien:
 - backpacker_erd_2nf.png
@@ -34,7 +33,7 @@ Datei:
 
 ## 1.3 Zugriffsrechte
 
-Ich habe Benutzer erstellt und ihnen Rechte gegeben, wie in der Zugriffsmatrix. Dafür habe ich SQL-Befehle geschrieben.
+Ich habe Benutzer in MySQL erstellt und ihnen Rechte gegeben, wie in der Zugriffsmatrix. Dafür habe ich SQL-Befehle geschrieben und sie in phpMyAdmin ausgeführt.
 
 Dateien:
 - create_users.sql
@@ -49,7 +48,7 @@ Datei:
 
 ## 1.4 Daten importieren und bereinigen
 
-Ich habe CSV-Dateien in die Datenbank importiert. Danach habe ich Fremdschlüssel, Indizes und Regeln hinzugefügt, damit alles korrekt ist.
+Ich habe CSV-Dateien mit phpMyAdmin in die Datenbank importiert. Danach habe ich Fremdschlüssel, Indizes und Regeln ergänzt, damit alles richtig funktioniert.
 
 Dateien:
 - import_csv.sql
@@ -59,7 +58,7 @@ Dateien:
 
 ## 1.5 Testen
 
-Ich habe geschaut, ob die Daten stimmen, also keine Fehler drin sind. Außerdem habe ich Testdaten eingefügt, um eine spätere Migration vorzubereiten.
+Ich habe geprüft, ob die Daten stimmen, also keine Fehler enthalten. Zusätzlich habe ich Testdaten eingefügt, um für eine spätere Migration vorbereitet zu sein.
 
 Dateien:
 - testdaten_migration.sql
@@ -69,7 +68,7 @@ Dateien:
 
 ## Fazit von der lokalen Datenbank
 
-Die Datenbank läuft lokal, alle Daten sind drin, die Benutzer haben die richtigen Rechte und alles wurde getestet. Jetzt kann man später in die Cloud migrieren.
+Die Datenbank läuft lokal mit MySQL und phpMyAdmin. Alle Daten sind korrekt drin, die Benutzerrechte stimmen und alles wurde getestet. Damit ist die Basis für die Migration in die Cloud bereit.
 
 # 2. Teil Remote Cloud-Datenbank 
 
