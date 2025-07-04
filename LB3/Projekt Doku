@@ -1,0 +1,143 @@
+# Projekt 
+
+
+# 1. Teil Lokale Datenbank mit MariaDB (XAMPP)
+
+## 1. Lokale Datenbank
+
+Ich habe MariaDB mit XAMPP benutzt, um die Datenbank lokal zu testen. MariaDB ist wie MySQL und einfach zu verwenden.
+
+---
+
+## 1.1 ERD in 2. Normalform
+
+Ich habe das ER-Diagramm vom Backpacker-Projekt genommen und es in die 2. Normalform gebracht. So werden doppelte Daten vermieden. Die Tabellen habe ich mit dem DDL-Script erstellt.
+
+Dateien:
+- backpacker_erd_2nf.png
+- backpacker_ddl.sql
+
+---
+
+## 1.2 Zugriffsmatrix
+
+In der Zugriffsmatrix steht, wer was in der Datenbank machen darf. Zum Beispiel:
+
+- Admin: darf alles
+- Mitarbeiter: darf z.B. Buchungen sehen und ändern
+- Gast: darf nur Länder und Leistungen sehen
+
+Datei:
+- zugriffsmatrix_backpacker.pdf
+
+---
+
+## 1.3 Zugriffsrechte
+
+Ich habe Benutzer erstellt und ihnen Rechte gegeben, wie in der Zugriffsmatrix. Dafür habe ich SQL-Befehle geschrieben.
+
+Dateien:
+- create_users.sql
+- grant_rights.sql
+
+Ich habe auch getestet, ob die Benutzer nur das dürfen, was sie dürfen. Die Tests habe ich dokumentiert.
+
+Datei:
+- testprotokoll_zugriffsrechte.pdf
+
+---
+
+## 1.4 Daten importieren und bereinigen
+
+Ich habe CSV-Dateien in die Datenbank importiert. Danach habe ich Fremdschlüssel, Indizes und Regeln hinzugefügt, damit alles korrekt ist.
+
+Dateien:
+- import_csv.sql
+- constraints_fks.sql
+
+---
+
+## 1.5 Testen
+
+Ich habe geschaut, ob die Daten stimmen, also keine Fehler drin sind. Außerdem habe ich Testdaten eingefügt, um eine spätere Migration vorzubereiten.
+
+Dateien:
+- testdaten_migration.sql
+- konsistenztests.sql
+
+---
+
+## Fazit von der lokalen Datenbank
+
+Die Datenbank läuft lokal, alle Daten sind drin, die Benutzer haben die richtigen Rechte und alles wurde getestet. Jetzt kann man später in die Cloud migrieren.
+
+# 2. Teil Remote Cloud-Datenbank 
+
+## 2.1 Setup Cloud-DBMS
+
+Ich habe eine MariaDB-Datenbank in der Cloud (z.B. auf AWS) eingerichtet. Dazu gehörte:
+
+- Server starten (z.B. EC2 auf AWS)
+- MariaDB installieren
+- Port 3306 öffnen, damit man auf die Datenbank zugreifen kann
+- Benutzer anlegen und Verbindung testen
+
+---
+
+## 2.2 Betrieb
+
+Die Datenbank wurde so eingerichtet, dass sie für den echten Einsatz (Produktion) sicher ist.
+
+- Sichere Passwörter für alle Benutzer
+- Externe Zugriffe nur über bestimmte IPs erlaubt
+- Konfigurationsdateien (.ini) angepasst, z.B. für Logs und Sicherheit
+
+Alles läuft stabil und ist bereit für die weitere Nutzung oder Migration.
+
+# 3. Teil Automatisierte Migration von lokal zu Cloud
+
+## 3.1 Berechtigungen übertragen
+
+Ich habe die Benutzerrechte (Zugriffsberechtigungen) von der lokalen Datenbank in die Cloud-Datenbank übertragen.
+
+- Mit SQL-Skripts (DCL) wurden alle Rechte automatisch gesetzt
+- Die Benutzer wurden getestet
+- Ich habe aufgeschrieben, ob die Rechte richtig funktionieren
+
+Dateien:
+- grant_rights_cloud.sql
+- testprotokoll_benutzerrechte.pdf
+
+---
+
+## 3.2 Daten übertragen
+
+Die Datenbankstruktur (Tabellen usw.) und die Inhalte wurden automatisch von lokal in die Cloud übertragen.
+
+- Mit SQL-Skripten (DDL und DML)
+- Danach habe ich Fremdschlüssel, Indizes und Regeln ergänzt, damit alles korrekt ist
+
+Dateien:
+- export_local.sql
+- import_cloud.sql
+- bereinigung_cloud.sql
+
+---
+
+## 3.3 Testen
+
+Ich habe geprüft, ob alle Daten richtig übertragen wurden. Dazu habe ich Testdaten aus der lokalen DB genommen und mit der Cloud-Version verglichen.
+
+- Abfragen für Datenkonsistenz erstellt
+- Ergebnisse dokumentiert
+
+Dateien:
+- konsistenztest_migration.sql
+- testbericht_migration.pdf
+
+
+
+# Fazit 
+
+Wir sind mit allem relativ knapp durchgekomm und haben all unsere Ziele erreicht. Ausserdem haben wir auch gelernt von diesem Projekt.
+
